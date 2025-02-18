@@ -5,5 +5,8 @@
     <color name="theme">#F0A500</color>
     <color name="background_app">#1A1A1D</color>
     <color name="button">#334756</color>
+    <color name="navcolor">#25252A</color>
+
+
 
 </resources>

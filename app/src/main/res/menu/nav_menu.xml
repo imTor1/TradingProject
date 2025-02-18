@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/icon_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_invest"
+        android:icon="@drawable/icon_invest"
+        android:title="Invest" />
+    <item
+        android:id="@+id/nav_news"
+        android:icon="@drawable/icon_news"
+        android:title="News"/>
+    <item
+        android:id="@+id/nav_activity"
+        android:icon="@drawable/icon_activity"
+        android:title="Activity"/>
+    <item
+        android:id="@+id/nav_me"
+        android:icon="@drawable/icon_me"
+        android:title="Me" />
+
+</menu>
