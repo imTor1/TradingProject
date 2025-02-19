@@ -1,5 +1,6 @@
 package com.example.tradingproject
 
+import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.graphics.drawable.Drawable
+import android.provider.Telephony.Mms.Intents
 import android.text.method.PasswordTransformationMethod
 import android.widget.Button
 
@@ -88,6 +90,8 @@ class LoginPage : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener(){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             email.text.clear()
             password.text.clear()
         }
