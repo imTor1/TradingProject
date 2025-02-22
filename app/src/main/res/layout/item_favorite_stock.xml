@@ -10,7 +10,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintTop_toTopOf="parent">
+
 
         <TextView
             android:id="@+id/stockName"
@@ -18,15 +20,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="NVDA"
+            android:layout_gravity="center"
             android:textColor="@color/theme"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <TextView
             android:id="@+id/stockChange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2.36%"
+            android:layout_weight="1"
+            android:layout_gravity="end"
             android:textColor="@color/green"
             android:textSize="14sp" />
 
@@ -37,6 +46,8 @@
             android:text="132.85 USD"
             android:textColor="@color/theme"
             android:textSize="16sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
