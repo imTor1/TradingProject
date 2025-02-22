@@ -17,9 +17,11 @@ import android.graphics.drawable.Drawable
 import android.provider.Telephony.Mms.Intents
 import android.text.method.PasswordTransformationMethod
 import android.widget.Button
+import android.widget.Toast
 
 
 class LoginPage : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,24 +31,50 @@ class LoginPage : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val btnregister = findViewById<TextView>(R.id.btnregister)
         val email = findViewById<EditText>(R.id.edit_email)
-        val password = findViewById<EditText>(R.id.edit_password)
         var loginButton = findViewById<Button>(R.id.login_button)
-        var isPasswordVisible = false;
         val textView = findViewById<TextView>(R.id.policy1)
-        val register = findViewById<TextView>(R.id.register)
         val forgetpassword = findViewById<TextView>(R.id.forgetpassword)
 
-        //Add color Hilight Policy
-        val highlightedText = "By proceeding, you agree to the terms of use of the <font color='#F0A500'><b>Stock app</b></font> and confirm"
+        val highlightedText = "By proceeding, you agree to the terms of use of the <font color='#F0A500'><b>Stock app</b></font> and confirm that you have read and understood the privacy policy."
         textView.text = Html.fromHtml(highlightedText, Html.FROM_HTML_MODE_LEGACY)
-
         //underline Text
-        register.paintFlags = textView.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-        forgetpassword.paintFlags = textView.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        forgetpassword.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        btnregister.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+
+        PasswordLockNShow()
+
+        btnregister.setOnClickListener(){
+            val intent = Intent(this, RegisterEmailActivity::class.java)
+            startActivity(intent)
+        }
+        loginButton.setOnClickListener(){
+            val password = findViewById<EditText>(R.id.edit_password)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            email.text.clear()
+            password.text.clear()
+        }
 
 
+            //Login fingerPrint TestVersion 1
+           /* val biometricAuth = BiometricAuth(this) { isSuccess ->
+                if (isSuccess) {
+                    Toast.makeText(this, "ล็อกอินสำเร็จ", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "ลายนิ้วมือไม่ถูกต้อง", Toast.LENGTH_SHORT).show()
+                }
+            }
+            biometricAuth.authenticate()*/
+
+    }
+
+
+    private fun PasswordLockNShow(){
         //Set Lock & Unlock password
+        val password = findViewById<EditText>(R.id.edit_password)
+        var isPasswordVisible = false;
         val originalTypeface: Typeface = password.typeface ?: Typeface.DEFAULT
         password.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         password.transformationMethod = PasswordTransformationMethod.getInstance()
@@ -81,22 +109,11 @@ class LoginPage : AppCompatActivity() {
             }
             false
         }
-
-        //Set delete Text Password When Click
         password.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                password.text.clear() // เคลียร์เมื่อได้รับโฟกัส
+                password.text.clear()
             }
         }
-
-        loginButton.setOnClickListener(){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            email.text.clear()
-            password.text.clear()
-        }
-
-
-
     }
+
 }

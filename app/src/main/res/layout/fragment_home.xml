@@ -2,15 +2,16 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/background_app"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context=".HomeFragment">
-
 
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+        android:paddingBottom="?attr/actionBarSize"
         android:orientation="vertical">
 
     <LinearLayout
@@ -23,64 +24,58 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/user"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Hi Username"
-            android:textSize="20dp"
-            android:textStyle="bold"
             android:textColor="@color/theme"
-            android:layout_gravity="center"/>
+            android:textSize="24sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:paddingStart="20dp"
+                android:paddingEnd="10dp"
                 android:drawableLeft="@drawable/icon_search"
                 android:background="@drawable/rounded_search"/>
 
     </LinearLayout>
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:fillViewport="true">
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:paddingLeft="20dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerStock"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:padding="5dp">
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:padding="5dp"
+                android:scrollbars="none" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerStock"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:overScrollMode="never"
-                    android:padding="5dp"
-                    tools:listitem=""/>
-
-            </LinearLayout>
-        </HorizontalScrollView>
-
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,13 +85,13 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
+                android:layout_marginStart="10dp"
                 android:src="@drawable/icon_trandingstock"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Trading Stocks"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:layout_marginLeft="5dp"
                 android:textStyle="bold"
                 android:textColor="@color/theme"
@@ -108,25 +103,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/box"
-            android:padding="5dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/rounded_boxtranding"
+            android:backgroundTint="@color/box"
             android:layout_margin="10dp">
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@color/black"
-                android:padding="0dp">
+                android:background="@color/black">
 
                 <!-- Line Chart -->
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/stockChart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="0dp"
-                    android:layout_margin="0dp"
-                    android:background="@color/black"/>
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/rounded_boxtranding"/>
 
                 <ImageView
                     android:id="@+id/btnPrev"
@@ -135,7 +131,7 @@
                     android:layout_centerVertical="true"
                     android:layout_alignParentStart="true"
                     android:background="@drawable/rounded_button"
-                    android:src="@drawable/icon_flagus"
+                    android:src="@drawable/icon_left"
                     android:padding="10dp"/>
 
                 <ImageView
@@ -145,23 +141,23 @@
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/rounded_button"
-                    android:src="@drawable/icon_flagus"
+                    android:src="@drawable/icon_right"
                     android:padding="10dp"/>
             </RelativeLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="NVDA"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_weight="1"
                     android:textColor="@color/theme"/>
@@ -170,7 +166,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:src="@drawable/icon_up"/>
 
                 <TextView
@@ -180,15 +176,14 @@
                     android:gravity="end"
                     android:text="100.19%"
                     android:textColor="#42bd41"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:padding="5dp">
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -198,21 +193,22 @@
                     android:backgroundTint="@color/green"
                     android:drawableLeft="@drawable/icon_flagus"
                     android:drawablePadding="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
                     android:text="US Stock"
+                    android:textSize="12sp"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="135.82"
                     android:textColor="@color/theme"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -220,10 +216,10 @@
                     android:layout_gravity="bottom"
                     android:text="USD"
                     android:textColor="@color/theme"
-                    android:textSize="15dp" />
-
+                    android:textSize="18sp"/>
             </LinearLayout>
         </LinearLayout>
+
 
 
         <LinearLayout
@@ -231,7 +227,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_boxtranding"
             android:paddingTop="10dp"
-            android:paddingStart="20dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
             android:backgroundTint="@color/box"
             android:paddingBottom="10dp"
             android:layout_margin="10dp"
@@ -242,7 +239,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -254,9 +251,9 @@
                     android:textStyle="bold"/>
 
                 <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginRight="10dp"
                     android:layout_gravity="center"
                     android:src="@drawable/plus"/>
             </LinearLayout>
@@ -265,12 +262,53 @@
                 android:id="@+id/recyclerFavoriteStock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:overScrollMode="never"
-                android:padding="5dp"
-                tools:listitem="@layout/item_favorite_stock"/>
+                android:overScrollMode="never"/>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textColor="@color/theme"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/icon_arrowright"/>
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_boxtranding"
+        android:paddingTop="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:backgroundTint="@color/box"
+        android:paddingBottom="10dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerNewsStock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"/>
 
         </LinearLayout>
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

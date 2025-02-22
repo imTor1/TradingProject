@@ -44,6 +44,8 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation("com.google.android.material:material:1.6.1")
+    implementation("com.github.xabaras:RecyclerViewSwipeDecorator:1.4")
+    implementation("androidx.biometric:biometric:1.2.0-alpha04")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

@@ -22,7 +22,7 @@
             android:text="NVDA"
             android:layout_gravity="center"
             android:textColor="@color/theme"
-            android:textSize="22sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -47,7 +47,5 @@
             android:textColor="@color/theme"
             android:textSize="16sp" />
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
