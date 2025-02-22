@@ -3,6 +3,8 @@ package com.example.tradingproject
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,29 +20,51 @@ import com.example.tradingproject.R
 import com.github.mikephil.charting.components.XAxis
 
 class HomeFragment : Fragment() {
+    private lateinit var stockAdapter: StockAdapter
+    private val stockList = mutableListOf<StockModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
-
-
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
         val stockChart = view.findViewById<LineChart>(R.id.stockChart)
         val greenColor = Color.parseColor("#4DC247")
         val colorUnder = Color.parseColor("#2E742B")
 
-
-
-        // สร้างข้อมูลราคาหุ้นสมมุติ
         val stockPrices = listOf(100, 102, 98, 105, 110, 108, 115, 120, 125)
         val entries = stockPrices.mapIndexed { index, price -> Entry(index.toFloat(), price.toFloat()) }
 
-        // สร้าง DataSet สำหรับเส้นกราฟ
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerStock)
+        val recyclerFavoriteStock = view.findViewById<RecyclerView>(R.id.recyclerFavoriteStock)
+
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.setHasFixedSize(true)
+
+        recyclerView.isNestedScrollingEnabled = false
+
+        stockList.clear()
+        stockList.addAll(
+            listOf(
+                StockModel("SET", "1,283.97", "1.06%", R.drawable.icon_flagus),
+                StockModel("S&P 500", "6,068.50", "0.03%", R.drawable.icon_flagus),
+                StockModel("NASDAQ", "19,643.85", "0.36%", R.drawable.icon_flagus),
+                StockModel("DOW J", "44,593.65", "0.28%", R.drawable.icon_flagus),
+                StockModel("BTC/USD", "96,094.13", "0.35%", R.drawable.icon_flagus),
+                StockModel("Oil CL", "96,094.13", "0.35%", R.drawable.icon_flagus),
+            )
+        )
+
+        stockAdapter = StockAdapter(stockList)
+        recyclerFavoriteStock.adapter = stockAdapter
+        recyclerView.adapter = stockAdapter
+
+
         val lineDataSet = LineDataSet(entries, "").apply {
-            color = greenColor // ✅ สีเส้นกราฟ
+            color = greenColor
             lineWidth = 2f
             setDrawCircles(false)
             setDrawValues(false)
