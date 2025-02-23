@@ -1,6 +1,8 @@
 package com.example.tradingproject
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +17,12 @@ class RegisterEmailOTPActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val btnRegisterOTP = findViewById<Button>(R.id.btnRegisterOTP)
+
+        btnRegisterOTP.setOnClickListener(){
+            val intent = Intent(this, RegisterCreatePasswordActivity::class.java)
+            startActivity(intent)
         }
 
 

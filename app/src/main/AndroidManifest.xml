@@ -20,6 +20,9 @@
         android:theme="@style/Theme.TradingProject"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterCreatePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterEmailOTPActivity"
             android:exported="false" />
         <activity
@@ -27,7 +30,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LoginPage"
             android:exported="true">

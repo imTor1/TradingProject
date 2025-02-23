@@ -114,15 +114,20 @@
                 android:background="@color/black">
 
                 <!-- Line Chart -->
+
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/stockChart"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/rounded_boxtranding"/>
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="-1dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@drawable/rounded_boxtranding" />
 
                 <ImageView
                     android:id="@+id/btnPrev"
@@ -262,7 +267,8 @@
                 android:id="@+id/recyclerFavoriteStock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:overScrollMode="never"/>
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_favorite_stock"/>
 
         </LinearLayout>
 
