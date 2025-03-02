@@ -34,4 +34,5 @@ class StockFavoriteAdapter(
             stockChange.text = stock.change
         }
     }
+
 }

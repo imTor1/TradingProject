@@ -20,6 +20,9 @@
         android:theme="@style/Theme.TradingProject"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterCreateUsernameActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterCreatePasswordActivity"
             android:exported="false" />
         <activity

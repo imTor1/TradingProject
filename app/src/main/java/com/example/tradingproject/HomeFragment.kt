@@ -149,9 +149,6 @@ class HomeFragment : Fragment() {
     }
 
 
-
-
-
     private fun enableSwipeToShowDelete(recyclerView: RecyclerView) {
         val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             override fun onMove(
@@ -163,7 +160,6 @@ class HomeFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                // ✅ ไม่ลบรายการทันที แต่ให้กดปุ่มลบ
                 favoriteAdapter.notifyItemChanged(viewHolder.adapterPosition)
             }
 
