@@ -1,5 +1,6 @@
 package com.example.tradingproject
 
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -19,6 +21,8 @@ import androidx.recyclerview.widget.LinearSmoothScroller.SNAP_TO_START
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
+import androidx.navigation.fragment.findNavController
+
 
 
 class HomeFragment : Fragment() {
@@ -31,8 +35,6 @@ class HomeFragment : Fragment() {
     private val handler = Handler(Looper.getMainLooper())
     private var scrollPosition = 0
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,6 +44,11 @@ class HomeFragment : Fragment() {
         FavoriteStock(view)
         RecommenStock(view)
         autoScrollRecyclerView(view)
+
+        val searchbar = view.findViewById<EditText>(R.id.search_bar)
+        searchbar.setOnClickListener {
+            findNavController().navigate(R.id.nav_detail)
+        }
 
 
         return view

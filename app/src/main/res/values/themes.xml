@@ -1,15 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.TradingProject" parent="Theme.Material3.DayNight.NoActionBar">
-
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <style name="Theme.TradingProject" parent="Base.Theme.TradingProject">
-
     </style>
 
     <style name="Setnavigation" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="android:foreground">@null</item>
+
     </style>
 
 

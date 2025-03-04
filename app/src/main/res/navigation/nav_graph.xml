@@ -28,4 +28,15 @@
         android:name="com.example.tradingproject.MeFragment"
         android:label="Me"/>
 
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.example.tradingproject.DetailFragment"
+        android:label="Detail"/>
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.tradingproject.ProfileFragment"
+        android:label="Profile"/>
+
+
+
 </navigation>
