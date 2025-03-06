@@ -21,11 +21,6 @@ import okhttp3.FormBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.common.api.ApiException
 
 class LoginPage : AppCompatActivity() {
 
@@ -38,16 +33,20 @@ class LoginPage : AppCompatActivity() {
         val googleLoginButton = findViewById<Button>(R.id.logingoogle)
         val forgetPassword = findViewById<TextView>(R.id.forgetpassword)
 
+        // ตั้งเส้นใต้ให้กับปุ่ม Register และ Forget Password
         forgetPassword.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         btnRegister.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
+        // ฟังก์ชันสำหรับ lock/unlock password field
         PasswordLockNShow()
 
+        // เปลี่ยนหน้าไปยัง Register Activity เมื่อคลิก Register
         btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterEmailActivity::class.java)
             startActivity(intent)
         }
 
+        // กด login ด้วย email/password
         loginButton.setOnClickListener {
             val emailEditText = findViewById<EditText>(R.id.edit_email)
             val passwordEditText = findViewById<EditText>(R.id.edit_password)
@@ -56,7 +55,6 @@ class LoginPage : AppCompatActivity() {
             val password = passwordEditText.text.toString().trim()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                // เรียกใช้งานฟังก์ชัน loginUser เพื่อทำการเข้าสู่ระบบ
                 loginUser(email, password)
             } else {
                 Toast.makeText(this, "กรุณากรอกอีเมลและรหัสผ่าน", Toast.LENGTH_SHORT).show()
@@ -65,41 +63,35 @@ class LoginPage : AppCompatActivity() {
     }
 
     /**
-     * ฟังก์ชัน loginUser ใช้สำหรับส่ง HTTP POST Request เพื่อเข้าสู่ระบบผ่าน API
+     * ส่ง request login ด้วย email และ password ไปยัง API
      */
     private fun loginUser(email: String, password: String) {
-        // สร้าง OkHttpClient instance
         val client = OkHttpClient()
+        // ใช้ URL นี้สำหรับ Android Emulator
+        val url = "http://10.0.2.2:3000/api/login"
 
-        // URL ของ API ที่ใช้เข้าสู่ระบบ (เปลี่ยนเป็น URL ที่ใช้งานจริง)
-        val url = "https://yourapi.com/api/login"
-
-        // สร้าง RequestBody โดยส่งข้อมูล email และ password
         val formBody: RequestBody = FormBody.Builder()
             .add("email", email)
             .add("password", password)
             .build()
 
-        // สร้าง Request สำหรับ POST
         val request = Request.Builder()
             .url(url)
             .post(formBody)
             .build()
 
-        // เรียกใช้งาน network request ใน Coroutine บน Dispatchers.IO
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val response = client.newCall(request).execute()
+                // อ่าน response body เพื่อช่วย debug
+                val responseBody = response.body?.string() ?: "No response body"
                 withContext(Dispatchers.Main) {
                     if (response.isSuccessful) {
-                        // หากเข้าสู่ระบบสำเร็จ สามารถทำการ parse response หากต้องการ
                         Toast.makeText(this@LoginPage, "Login Successful", Toast.LENGTH_SHORT).show()
-                        // เปลี่ยนหน้าไปยัง MainActivity
                         val intent = Intent(this@LoginPage, MainActivity::class.java)
                         startActivity(intent)
                     } else {
-                        // แสดงรหัส error ที่ได้จาก server
-                        Toast.makeText(this@LoginPage, "Login failed: ${response.code}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@LoginPage, "Login failed: $responseBody", Toast.LENGTH_LONG).show()
                     }
                 }
             } catch (e: Exception) {
@@ -109,12 +101,15 @@ class LoginPage : AppCompatActivity() {
             }
         }
     }
-
+    /**
+     * ฟังก์ชันสำหรับสลับแสดง/ซ่อนรหัสผ่าน
+     */
     private fun PasswordLockNShow() {
         val password = findViewById<EditText>(R.id.edit_password)
         var isPasswordVisible = false
         val originalTypeface: Typeface = password.typeface ?: Typeface.DEFAULT
 
+        // ตั้งค่าเริ่มต้นให้เป็น password field
         password.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         password.transformationMethod = PasswordTransformationMethod.getInstance()
         password.setCompoundDrawablesRelativeWithIntrinsicBounds(
@@ -125,10 +120,13 @@ class LoginPage : AppCompatActivity() {
         )
         password.typeface = originalTypeface
 
+        // เมื่อแตะที่ drawable ด้านขวาให้สลับแสดง/ซ่อนรหัสผ่าน
         password.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 val drawableEnd: Drawable? = password.compoundDrawablesRelative[2]
-                if (drawableEnd != null && event.rawX >= (password.right - drawableEnd.bounds.width() - password.paddingEnd)) {
+                if (drawableEnd != null &&
+                    event.rawX >= (password.right - drawableEnd.bounds.width() - password.paddingEnd)
+                ) {
                     isPasswordVisible = !isPasswordVisible
 
                     if (isPasswordVisible) {
@@ -158,6 +156,7 @@ class LoginPage : AppCompatActivity() {
             false
         }
 
+        // เมื่อได้รับ focus ให้ล้างข้อความ
         password.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 password.text.clear()

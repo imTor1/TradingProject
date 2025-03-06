@@ -36,9 +36,6 @@ android {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:7.2.2")
-
-    implementation("io.ktor:ktor-server-routing:2.3.3")
     //  Google Sign-In API สำหรับการล็อกอินด้วย Google
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     //  Retrofit สำหรับการเรียก API

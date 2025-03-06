@@ -25,6 +25,7 @@ class RegisterEmailActivity : AppCompatActivity() {
 
     }
 
+
     private fun BtnController(){
         val btnbackToLogin = findViewById<TextView>(R.id.btnbackToLogin)
         val btnRegisterEmail = findViewById<Button>(R.id.btnRegisterEmail)
