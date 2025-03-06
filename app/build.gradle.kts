@@ -40,10 +40,12 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     //  Retrofit สำหรับการเรียก API
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0") // ✅ ใช้ Gson แปลง JSON เป็น Object
+    // ✅ ใช้ Gson แปลง JSON เป็น Object
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     //  OkHttp สำหรับจัดการ HTTP Requests
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3") // ✅ ใช้สำหรับ Log HTTP Requests
+    // ✅ ใช้สำหรับ Log HTTP Requests
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
     //  Coroutines สำหรับทำงานแบบ Asynchronous
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")

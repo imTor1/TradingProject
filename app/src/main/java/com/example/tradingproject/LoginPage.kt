@@ -40,6 +40,11 @@ class LoginPage : AppCompatActivity() {
         // ฟังก์ชันสำหรับ lock/unlock password field
         PasswordLockNShow()
 
+        forgetPassword.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         // เปลี่ยนหน้าไปยัง Register Activity เมื่อคลิก Register
         btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterEmailActivity::class.java)
@@ -68,7 +73,7 @@ class LoginPage : AppCompatActivity() {
     private fun loginUser(email: String, password: String) {
         val client = OkHttpClient()
         // ใช้ URL นี้สำหรับ Android Emulator
-        val url = "http://10.0.2.2:3000/api/login"
+        val url = getString(R.string.root_url) + getString(R.string.login_url)
 
         val formBody: RequestBody = FormBody.Builder()
             .add("email", email)
@@ -101,9 +106,6 @@ class LoginPage : AppCompatActivity() {
             }
         }
     }
-    /**
-     * ฟังก์ชันสำหรับสลับแสดง/ซ่อนรหัสผ่าน
-     */
     private fun PasswordLockNShow() {
         val password = findViewById<EditText>(R.id.edit_password)
         var isPasswordVisible = false
@@ -156,7 +158,6 @@ class LoginPage : AppCompatActivity() {
             false
         }
 
-        // เมื่อได้รับ focus ให้ล้างข้อความ
         password.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 password.text.clear()
