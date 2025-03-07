@@ -4,5 +4,6 @@ data class StockModel(
     val name: String,
     val price: String,
     val change: String,
-    val flagIcon: Int
+    val flagImage: Int
 )
+

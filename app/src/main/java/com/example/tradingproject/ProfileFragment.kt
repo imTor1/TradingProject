@@ -30,16 +30,21 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // ค้นหา ImageView สำหรับ toggle รหัสผ่าน ด้วย id ใหม่
+        val backbutton = view.findViewById<ImageView>(R.id.backbutton)
         val passwordToggleIcon = view.findViewById<ImageView>(R.id.passwordToggleIcon)
         setupPasswordToggle(view)
         passwordToggleIcon.setOnClickListener {
             togglePasswordVisibility(view)
         }
+        backbutton.setOnClickListener{
+            findNavController().popBackStack()
+        }
+
+
+
     }
 
     private fun setupPasswordToggle(rootView: View) {
-        // ค้นหา EditText ด้วย id ใหม่
         val password = rootView.findViewById<EditText>(R.id.edit_password)
         val originalTypeface: Typeface = password.typeface ?: Typeface.DEFAULT
 
@@ -49,12 +54,11 @@ class ProfileFragment : Fragment() {
         password.setCompoundDrawablesRelativeWithIntrinsicBounds(
             0,
             0,
-            R.drawable.lock_password, // ไอคอนสำหรับล็อค
+            R.drawable.lock_password,
             0
         )
         password.typeface = originalTypeface
 
-        // ตั้ง onTouchListener เพื่อรองรับการแตะที่ drawable ด้านขวาของ EditText
         password.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 val drawableEnd: Drawable? = password.compoundDrawablesRelative[2]

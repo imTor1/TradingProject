@@ -25,6 +25,16 @@ class MeFragment : Fragment() {
 
         val logout = view.findViewById<LinearLayout>(R.id.logout_button)
         val profile = view.findViewById<LinearLayout>(R.id.profile)
+        val Check_UsStock = view.findViewById<LinearLayout>(R.id.Check_UsStock)
+        val Check_ThStock = view.findViewById<LinearLayout>(R.id.Check_ThStock)
+
+
+        Check_ThStock.setOnClickListener {
+            findNavController().navigate(R.id.mystock_th)
+        }
+        Check_UsStock.setOnClickListener {
+            findNavController().navigate(R.id.mystock_us)
+        }
 
         profile.setOnClickListener{
             findNavController().navigate(R.id.nav_profile)

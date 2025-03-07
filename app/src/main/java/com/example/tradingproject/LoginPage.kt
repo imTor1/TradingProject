@@ -36,11 +36,19 @@ class LoginPage : AppCompatActivity() {
         // ตั้งเส้นใต้ให้กับปุ่ม Register และ Forget Password
         forgetPassword.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         btnRegister.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-
-        // ฟังก์ชันสำหรับ lock/unlock password field
         PasswordLockNShow()
 
-        // เปลี่ยนหน้าไปยัง Register Activity เมื่อคลิก Register
+
+        googleLoginButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        forgetPassword.setOnClickListener{
+            val intent = Intent(this, ForgetpasswordEmailActivity::class.java)
+            startActivity(intent)
+        }
+
         btnRegister.setOnClickListener {
             val intent = Intent(this, RegisterEmailActivity::class.java)
             startActivity(intent)
@@ -62,9 +70,6 @@ class LoginPage : AppCompatActivity() {
         }
     }
 
-    /**
-     * ส่ง request login ด้วย email และ password ไปยัง API
-     */
     private fun loginUser(email: String, password: String) {
         val client = OkHttpClient()
         // ใช้ URL นี้สำหรับ Android Emulator

@@ -539,22 +539,15 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:text="Buy"
+                    android:text="Add To Favorite"
                     android:textSize="20sp"
+                    android:textStyle="bold"
                     android:textColor="@color/black"
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/rounded_button"
                     app:backgroundTint="@color/white"
                     android:layout_marginRight="10dp" />
 
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="50dp"
-                    android:padding="15dp"
-                    android:background="@drawable/rounded_button"
-                    android:src="@drawable/plus"
-                    android:backgroundTint="@color/theme"
-                    android:layout_marginEnd="10dp"/>
             </LinearLayout>
 
 

@@ -14,6 +14,7 @@ class StockAdapter(private var stockList: MutableList<StockModel>) :
         val stockName: TextView = view.findViewById(R.id.stockName)
         val stockPrice: TextView = view.findViewById(R.id.stockPrice)
         val stockChange: TextView = view.findViewById(R.id.stockChange)
+        val flagimg : ImageView = view.findViewById(R.id.flagimg)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StockViewHolder {
@@ -27,6 +28,9 @@ class StockAdapter(private var stockList: MutableList<StockModel>) :
         holder.stockName.text = stock.name
         holder.stockPrice.text = stock.price
         holder.stockChange.text = stock.change
+        holder.flagimg.setImageResource(stock.flagImage)
+
+
     }
 
     override fun getItemCount(): Int = stockList.size

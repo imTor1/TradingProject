@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="25dp">
 
         <ImageView
             android:layout_width="45dp"
@@ -175,6 +175,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/Check_UsStock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_boxtranding"
@@ -204,6 +205,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/Check_ThStock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_boxtranding"

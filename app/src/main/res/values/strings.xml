@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">TradingProject</string>
-    <string name="root_url">http://localhost:3000</string>
+    <string name="root_url">http://10.0.2.2:3000</string>
     <string name="login_url">/api/login</string>
     <string name="google_signin_url">/api/google-signin</string>
+    <string name="forgetpassword_Email">/api/forgot-password</string>
 
+
+    <string name="appleStock">
+        "Apple Inc. designs, manufactures and markets smartphones, personal computers, tablets,
+        wearables and accessories, and sells a variety of related services. Its product categories include
+        iPhone, Mac, iPad, and Wearables, Home and Accessories. Its software platforms include iOS, iPadOS, macOS, watchOS,
+        visionOS, and tvOS. Its services include advertising, AppleCare, cloud services, digital content and payment services.
+        The Company operates various platforms, including the App Store, that allow customers to discover and download applications and digital content,
+        such as books, music, video, games and podcasts. It also offers digital content through subscription-based services, including Apple Arcade, Apple Fitness+,
+        Apple Music, Apple News+, and Apple TV+. Its products include iPhone 16 Pro, iPhone 16, iPhone 15, iPhone 14, iPhone SE, MacBook Air, MacBook Pro, iMac,
+        Mac mini, Mac Studio, Mac Pro, iPad Pro, iPad Air, AirPods, AirPods Pro,
+        AirPods Max, Apple TV and Apple Vision Pro."
+    </string>
 
     <string name="large_text">
         "       ในช่วงเวลายามเย็นของฤดูฝน อากาศเย็นสบาย ลมพัดเบา ๆ สายฝนโปรยปรายลงมาจากท้องฟ้าสีเทาหม่น กลิ่นดินหอมอบอวลไปทั่วบริเวณ บ้านเรือนเปิดไฟสีส้มส่องแสงอบอุ่นผู้คนเดินถือร่มผ่านถนนที่เปียกชื้น เด็ก ๆ วิ่งเล่นใต้ชายคา หัวเราะสนุกสนานเสียงกบร้องประสานกันจากท้องนาไกล ๆ น้ำฝนไหลตามร่องระบายน้ำเป็นสายยาวพื้นดินชุ่มฉ่ำ ต้นไม้เขียวชอุ่มดูสดชื่น ชาวบ้านบางคนออกมายืนหน้าบ้านมองดูฟ้าที่ครึ้มไปด้วยเมฆฝนรอคอยให้หยาดน้ำสุดท้ายตกลงมาแล้วฟ้ากลับสว่างอีกครั้ง"

@@ -32,10 +32,29 @@
         android:id="@+id/nav_detail"
         android:name="com.example.tradingproject.DetailFragment"
         android:label="Detail"/>
+
+
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.tradingproject.ProfileFragment"
         android:label="Profile"/>
+
+
+    <fragment
+        android:id="@+id/mystock_us"
+        android:name="com.example.tradingproject.My_Stock_USFragment"
+        android:label="mystock_us"/>
+
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.tradingproject.SearchFragment"
+        android:label="search"/>
+
+
+    <fragment
+        android:id="@+id/mystock_th"
+        android:name="com.example.tradingproject.My_Stock_THFragment"
+        android:label="mystock_th"/>
 
 
 
