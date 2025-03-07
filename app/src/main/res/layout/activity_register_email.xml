@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/edit_email"
+        android:id="@+id/edit_emailRegister"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginStart="33dp"
@@ -95,7 +95,7 @@
         app:backgroundTint="@color/theme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_emailRegister" />
 
     <TextView
         android:id="@+id/btnbackToLogin"
