@@ -4,6 +4,7 @@
     <string name="login_url">/api/login</string>
     <string name="google_signin_url">/api/google-signin</string>
     <string name="forgetpassword_Email">/api/forgot-password</string>
+<!--    <string name="default_web_client_id">584554381698-eg56110686ci3qjfl1bunokg6a1l2quc.apps.googleusercontent.com</string>-->
 
 
     <string name="appleStock">

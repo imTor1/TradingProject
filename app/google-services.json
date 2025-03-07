@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "536486615234",
+    "project_id": "stock-app-d8f8c",
+    "storage_bucket": "stock-app-d8f8c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536486615234:android:fc3c448fb6044edf0c835b",
+        "android_client_info": {
+          "package_name": "com.example.tradingproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536486615234-g4mgnmmq9ihepdv9leauhiu4e79gq1nk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDGh6RDs1vho5e7uOUue41TDuLkOKRcww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536486615234-g4mgnmmq9ihepdv9leauhiu4e79gq1nk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

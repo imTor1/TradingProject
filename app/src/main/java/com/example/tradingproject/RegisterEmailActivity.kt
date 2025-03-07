@@ -58,7 +58,7 @@ class RegisterEmailActivity : AppCompatActivity() {
     private fun RegisterEmail(email: String) {
         val client = OkHttpClient()
 
-        val url = getString(R.string.root_url) + getString(R.string.register_email)
+        val url = getString(R.string.root_url)
 
         val formBody: RequestBody = FormBody.Builder()
             .add("email", email)
