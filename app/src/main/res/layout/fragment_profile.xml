@@ -5,40 +5,41 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ProfileFragment"
+    android:fitsSystemWindows="true"
     android:background="@color/background_app">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-
-        android:layout_marginRight="25dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/backbutton"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/arrow"/>
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You Profile"
-            android:textColor="@color/theme"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:layout_marginRight="25dp"/>
-    </LinearLayout>
+            android:layout_marginLeft="15dp"
+
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/backbutton"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/arrow"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You Profile"
+                android:textColor="@color/theme"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginRight="25dp"/>
+        </LinearLayout>
 
 
         <LinearLayout
@@ -47,10 +48,15 @@
             android:gravity="center"
             android:layout_marginTop="30dp"
             android:padding="10dp">
+
             <ImageView
+                android:id="@+id/profile_img"
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:src="@drawable/user"/>
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:background="@drawable/img_radias"
+                android:clipToOutline="true" />
 
         </LinearLayout>
 
@@ -74,7 +80,7 @@
 
             <EditText
                 android:id="@+id/edit_name"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxLines="1"
@@ -120,15 +126,18 @@
                 android:layout_marginEnd="10dp"/>
 
             <EditText
-                android:id="@+id/edit_emailProfilepage"
-                android:layout_width="0dp"
+                android:id="@+id/edit_email"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxLines="1"
                 android:scrollHorizontally="true"
                 android:gravity="center_vertical"
-                android:textColor="@color/white"
-                android:background="@null"/>
+                android:textColor="#808080"
+                android:background="@null"
+                android:focusable="false"
+                android:clickable="false"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -160,20 +169,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
-                android:layout_weight="0.18"
+                android:layout_weight="0.32"
                 android:textSize="16sp"
                 android:textColor="@color/theme"
                 android:layout_marginEnd="10dp"/>
 
             <EditText
                 android:id="@+id/edit_password"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="*****************"
                 android:textColor="@color/white"
-                android:textColorHint="@color/theme"
+                android:textColorHint="#808080"
                 android:background="@null"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:focusable="false"
+                android:clickable="false"/>
 
             <ImageView
                 android:id="@+id/passwordToggleIcon"
@@ -213,14 +225,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Age"
-                android:layout_weight="0.35"
+                android:layout_weight="0.32"
                 android:textSize="16sp"
                 android:textColor="@color/theme"
                 android:layout_marginEnd="10dp"/>
 
             <EditText
                 android:id="@+id/edit_Age"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxLines="1"
@@ -266,14 +278,16 @@
 
             <EditText
                 android:id="@+id/edit_birthday"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxLines="1"
                 android:scrollHorizontally="true"
                 android:gravity="center_vertical"
                 android:textColor="@color/white"
-                android:background="@null"/>
+                android:background="@null"
+                android:focusable="false"
+                android:clickable="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -310,17 +324,15 @@
                 android:textColor="@color/theme"
                 android:layout_marginEnd="10dp"/>
 
-            <EditText
-                android:id="@+id/edit_gender"
-                android:layout_width="0dp"
+            <Spinner
+                android:id="@+id/spinner_gender"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
-                android:maxLines="1"
-                android:scrollHorizontally="true"
-                android:gravity="center_vertical"
-                android:textColor="@color/white"
-                android:background="@null"/>
+                android:spinnerMode="dropdown"
+                android:background="@color/white"
+                android:gravity="center_vertical" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -348,7 +360,7 @@
             android:layout_gravity="center">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/login_button"
+                android:id="@+id/UpdateNewProfile_button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"

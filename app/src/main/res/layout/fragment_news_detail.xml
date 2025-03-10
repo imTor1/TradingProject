@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_app"
     android:layout_gravity="center"
+    android:fitsSystemWindows="true"
     tools:context=".NewsDetailFragment">
 
         <LinearLayout
@@ -39,6 +40,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/newsTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Title News"
@@ -52,10 +54,10 @@
                     android:layout_marginBottom="10dp">
 
                     <TextView
+                        android:id="@+id/newsSentiment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-
                         android:background="@drawable/rounded_search"
                         android:backgroundTint="@color/white"
                         android:drawableLeft="@drawable/icon_flagus"
@@ -73,6 +75,7 @@
                     android:layout_marginBottom="10dp">
 
                         <TextView
+                            android:id="@+id/newsDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Date : "
@@ -86,7 +89,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp">
+
                         <TextView
+                            android:id="@+id/newsSource"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Detail News"
@@ -107,6 +112,7 @@
                         android:layout_marginRight="10dp"/>
 
                     <TextView
+                        android:id="@+id/newsUrl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="เนื้อหาข่าวได้รับการสรุปและเรียบเรียงโดย TradeMate "

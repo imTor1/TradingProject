@@ -20,13 +20,19 @@
         android:padding="10dp">
 
         <ImageView
+            android:id="@+id/profile_img"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/user"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:background="@drawable/img_radias"
+            android:clipToOutline="true"/>
 
         <TextView
+            android:id="@+id/Username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -100,132 +106,14 @@
         </LinearLayout>
 
 
-        <LinearLayout
+        <WebView
+            android:id="@+id/tradingViewWebHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="10dp"
-            android:background="@drawable/rounded_boxtranding"
-            android:backgroundTint="@color/box"
-            android:layout_margin="10dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@color/black">
-
-                <!-- Line Chart -->
-
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/stockChart"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginEnd="-1dp"
-                    android:layout_marginBottom="0dp"
-                    android:background="@drawable/rounded_boxtranding" />
-
-                <ImageView
-                    android:id="@+id/btnPrev"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true"
-                    android:background="@drawable/rounded_button"
-                    android:src="@drawable/icon_left"
-                    android:padding="10dp"/>
-
-                <ImageView
-                    android:id="@+id/btnNext"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true"
-                    android:background="@drawable/rounded_button"
-                    android:src="@drawable/icon_right"
-                    android:padding="10dp"/>
-            </RelativeLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stock"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:textColor="@color/theme"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="5dp"
-                    android:src="@drawable/icon_up"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="end"
-                    android:text="0000.00%"
-                    android:textColor="#42bd41"
-                    android:textSize="14sp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@drawable/rounded_search"
-                    android:backgroundTint="@color/green"
-                    android:drawableLeft="@drawable/icon_flagus"
-                    android:drawablePadding="5dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:text="US Stock"
-                    android:textSize="12sp"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="00000.00"
-                    android:textColor="@color/theme"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:text="USD"
-                    android:textColor="@color/theme"
-                    android:textSize="18sp"/>
-            </LinearLayout>
-        </LinearLayout>
-
+            android:scrollbars="none"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            tools:ignore="WebViewLayout" />
 
 
         <LinearLayout
@@ -274,50 +162,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="News"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:textColor="@color/theme"
-                android:layout_gravity="center"/>
-
-            <ImageView
-                android:id="@+id/enter_newspage"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_gravity="center"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/icon_arrowright"/>
-        </LinearLayout>
-
-        <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_boxtranding"
-        android:paddingTop="10dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:backgroundTint="@color/box"
-        android:paddingBottom="10dp"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerNewsStock"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:overScrollMode="never"/>
-
-        </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

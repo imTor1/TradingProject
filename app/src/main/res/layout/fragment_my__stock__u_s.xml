@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_app"
+    android:fitsSystemWindows="true"
     tools:context=".My_Stock_USFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <LinearLayout

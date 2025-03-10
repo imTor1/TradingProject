@@ -3,8 +3,18 @@
     <string name="root_url">http://10.0.2.2:3000</string>
     <string name="login_url">/api/login</string>
     <string name="google_signin_url">/api/google-signin</string>
-    <string name="forgetpassword_Email">/api/forgot-password</string>
-<!--    <string name="default_web_client_id">584554381698-eg56110686ci3qjfl1bunokg6a1l2quc.apps.googleusercontent.com</string>-->
+    <string name="register_email">/api/register/email</string>
+    <string name="verify_otp_email_register">/api/register/verify-otp</string>
+    <string name="set_password">/api/register/set-password</string>
+    <string name="set_profile">/api/set-profile</string>
+    <string name="LatestNews">/api/latest-news</string>
+    <string name="UpdateNewProfile"></string>
+    <string name="Search">/api/search</string>
+    <string name="Top10_stock">/api/top-10-stocks</string>
+    <string name="FavoriteStock">/api/favorites</string>
+    <string name="ShowProfile">/api/users</string>
+
+    <string name="web_client_id">584554381698-eg56110686ci3qjfl1bunokg6a1l2quc.apps.googleusercontent.com</string>
 
 
     <string name="appleStock">

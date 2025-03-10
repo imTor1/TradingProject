@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -34,6 +35,11 @@ class RegisterEmailActivity : AppCompatActivity() {
         }
         BtnController()
 
+        val btnbackToLogin: TextView = findViewById(R.id.btnbackToLogin)
+        btnbackToLogin.setOnClickListener {
+            startActivity(Intent(this, LoginPage::class.java))
+
+        }
     }
 
 
@@ -43,10 +49,12 @@ class RegisterEmailActivity : AppCompatActivity() {
         btnbackToLogin.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
         btnRegisterEmail.setOnClickListener() {
-            val emailEdit = findViewById<EditText>(R.id.edit_email)
+            val emailEdit = findViewById<EditText>(R.id.edit_emailRegister)
 
             val email = emailEdit.text.toString().trim()
             RegisterEmail(email)
+            Log.d("VerifyOtp", "Verifying OTP for email: $email")
+
         }
 
         btnbackToLogin.setOnClickListener() {
@@ -58,7 +66,7 @@ class RegisterEmailActivity : AppCompatActivity() {
     private fun RegisterEmail(email: String) {
         val client = OkHttpClient()
 
-        val url = getString(R.string.root_url)
+        val url = getString(R.string.root_url) + getString(R.string.register_email)
 
         val formBody: RequestBody = FormBody.Builder()
             .add("email", email)
@@ -86,20 +94,19 @@ class RegisterEmailActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             val intent = Intent(this@RegisterEmailActivity, RegisterEmailOTPActivity::class.java)
+                            intent.putExtra("email", email)
                             startActivity(intent)
                         } catch (jsonEx: Exception) {
-                            // ถ้า parse JSON ไม่ได้ แสดง raw response
                             Toast.makeText(
                                 this@RegisterEmailActivity,
                                 "Registration success: $responseBody",
                                 Toast.LENGTH_SHORT
                             ).show()
 
-                            // ไปหน้า OTP ตามเดิม
                             val intent = Intent(this@RegisterEmailActivity, RegisterEmailOTPActivity::class.java)
+                            intent.putExtra("email", email)
                             startActivity(intent)
                         }
-
                     } else {
                         try {
                             val jsonObject = org.json.JSONObject(responseBody)
@@ -132,5 +139,6 @@ class RegisterEmailActivity : AppCompatActivity() {
     }
 
 
-    }
+
+}
 

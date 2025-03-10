@@ -29,9 +29,9 @@ class StockFavoriteAdapter(
         private val stockChange: TextView = itemView.findViewById(R.id.stockChange)
 
         fun bind(stock: StockModel) {
-            stockName.text = stock.name
-            stockPrice.text = stock.price
-            stockChange.text = stock.change
+            stockName.text = stock.StockSymbol
+            stockPrice.text = stock.ClosePrice
+            stockChange.text = stock.ChangePercentage
         }
     }
 

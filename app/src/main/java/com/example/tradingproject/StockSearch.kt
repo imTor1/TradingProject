@@ -1,10 +1,9 @@
 package com.example.tradingproject
 
-data class StockModel(
+data class StockSearch(
     val StockDetailID: String,
     val StockSymbol: String,
-    val ClosePrice: String?,
-    val ChangePercentage: String?,
+    val CompanyName: String,
     val FlagIcon: Int
 )
 

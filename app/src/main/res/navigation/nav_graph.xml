@@ -57,5 +57,12 @@
         android:label="mystock_th"/>
 
 
+    <fragment
+        android:id="@+id/news_detail"
+        android:name="com.example.tradingproject.NewsDetailFragment"
+        android:label="news_detail"/>
+
+
+
 
 </navigation>

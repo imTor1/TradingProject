@@ -40,8 +40,8 @@ android {
 
 dependencies {
 
-//    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
-//    implementation("com.google.firebase:firebase-analytics")
+    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+    implementation("com.google.firebase:firebase-analytics")
     //  Google Sign-In API สำหรับการล็อกอินด้วย Google
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     //  Retrofit สำหรับการเรียก API
@@ -76,6 +76,8 @@ dependencies {
     //  ConstraintLayout สำหรับจัดการ Layout UI
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.androidx.preference)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.androidx.espresso.core)
     //  การทดสอบ (Unit Test และ UI Test)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
