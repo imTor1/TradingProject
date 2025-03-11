@@ -98,6 +98,7 @@ class ProfileFragment : Fragment() {
             val newGender = spinnerGender.selectedItem.toString()
             val newBirthday = editBirthday.text.toString().trim()
             val NewPassword = edit_password.text.toString().trim()
+
             updateUserProfile(newUserName, newGender, newBirthday, imageUri)
 
             findNavController().popBackStack()
@@ -251,14 +252,12 @@ class ProfileFragment : Fragment() {
         val client = OkHttpClient()
         val url = requireContext().getString(R.string.root_url) + "/api/users/$userId/profile"
 
-        // 🔹 ใช้ MultipartBody เพื่อส่งไฟล์รูปและข้อมูลตัวอักษร
         val requestBodyBuilder = MultipartBody.Builder().setType(MultipartBody.FORM)
             .addFormDataPart("username", username)
             .addFormDataPart("gender", gender)
             .addFormDataPart("birthday", birthday) // ส่งเป็น YYYY-MM-DD
             //.addFormDataPart("")
 
-        // ถ้ามีการเลือกภาพโปรไฟล์ ให้เพิ่มภาพลงในคำขอ
         imgUri?.let { uri ->
             val inputStream = requireContext().contentResolver.openInputStream(uri)
             val tempFile = File.createTempFile("profile_img", ".jpg", requireContext().cacheDir)
@@ -277,7 +276,7 @@ class ProfileFragment : Fragment() {
 
         val request = Request.Builder()
             .url(url)
-            .put(requestBody) // ใช้ PUT Request
+            .put(requestBody)
             .addHeader("Authorization", "Bearer $token") // ส่ง Token
             .build()
 
